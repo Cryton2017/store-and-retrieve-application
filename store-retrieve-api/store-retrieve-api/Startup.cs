@@ -12,12 +12,16 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using store_retrieve_api.Models;
-
+using Microsoft.Net.Http.Headers;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace store_retrieve_api
 {
     public class Startup
     {
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,6 +37,18 @@ namespace store_retrieve_api
 
             services.AddDbContext<activitiesContext>(opt => opt.UseInMemoryDatabase("Activities"));
 
+            var corsBuilder = new CorsPolicyBuilder();
+            corsBuilder.AllowAnyHeader();
+            corsBuilder.AllowAnyMethod();
+            corsBuilder.AllowAnyOrigin(); // For anyone access.
+            //corsBuilder.WithOrigins("http://localhost:56573"); // for a specific url. Don't add a forward slash on the end!
+            //corsBuilder.AllowCredentials();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +62,8 @@ namespace store_retrieve_api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("SiteCorsPolicy");
 
             app.UseAuthorization();
 

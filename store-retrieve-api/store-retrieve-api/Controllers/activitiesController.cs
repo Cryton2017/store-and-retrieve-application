@@ -100,6 +100,22 @@ namespace store_retrieve_api.Controllers
             return NoContent();
         }
 
+        // DELETE: api/activities/
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAllactivities()
+        {
+            var activities = await _context.Activities.FindAsync();
+            if (activities == null)
+            {
+                return NotFound();
+            }
+
+            _context.Activities.Remove(activities);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
         private bool activitiesExists(long id)
         {
             return _context.Activities.Any(e => e.Id == id);
