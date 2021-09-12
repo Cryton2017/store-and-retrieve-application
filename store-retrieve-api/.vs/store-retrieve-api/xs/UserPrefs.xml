@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{85DDE63A-610E-4FB4-BED0-00B1EA1C2EFF}|Default">
+  <MonoDevelop.Ide.ItemProperties.store-retrieve-api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="store-retrieve-api/Controllers/activitiesController.cs">
+    <Files>
+      <File FileName="store-retrieve-api/Models/activities.cs" Line="14" Column="22" />
+      <File FileName="store-retrieve-api/Models/activitiesContext.cs" Line="12" Column="44" />
+      <File FileName="store-retrieve-api/Startup.cs" Line="34" Column="96" />
+      <File FileName="store-retrieve-api/Controllers/activitiesController.cs" Line="82" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="store-retrieve-api" expanded="True">
+            <Node name="store-retrieve-api" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="activitiesController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
