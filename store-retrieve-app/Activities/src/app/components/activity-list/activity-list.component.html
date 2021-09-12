@@ -1,0 +1,59 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Activities List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let activity of Activities; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveActivity(activity, i)"
+      >
+        {{ activity.activity }}
+      </li>
+    </ul>
+    <button class="m-3 btn btn-sm btn-success" (click)="fetchAnother()">
+      Fetch Another Activity
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentActivity.id">
+      <h4>Activity Details</h4>
+      <div>
+        <label><strong>Activity:</strong></label> 
+        {{ currentActivity.activity }}
+      </div>
+      <div>
+        <label><strong>Type:</strong></label>
+        {{ currentActivity.type }}
+      </div>
+      <div>
+          <label><strong>Participants:</strong></label>
+          {{ currentActivity.participants }}
+      </div>
+      <div>
+          <label><strong>Price:</strong></label>
+          {{ currentActivity.price }}
+      </div>
+      <div>
+          <label><strong>link:</strong></label>
+          {{ currentActivity.link }}
+      </div>
+      <div>
+          <label><strong>key:</strong></label>
+          {{ currentActivity.key }}
+      </div>
+      <div>
+          <label><strong>Accessibility:</strong></label>
+          {{ currentActivity.accessibility }}
+      </div>
+      <button class="m-3 btn btn-sm btn-danger" (click)="deleteActivity()">
+        Remove Activity
+      </button>
+    </div>
+
+    <div *ngIf="!currentActivity">
+      <br />
+      <p>Please click on an Activity!</p>
+    </div>
+  </div>
+</div>
